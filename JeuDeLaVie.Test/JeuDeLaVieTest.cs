@@ -43,6 +43,7 @@ namespace JeuDeLaVie.Test
         [InlineData(2)]
         [InlineData(3)]
         [InlineData(4)]
+
         public void Test3(int celluleInitialementMorte)
         {
             //ETANT DONNE une grille de 2x2 où toutes les cellules sont vivantes sauf une
@@ -60,6 +61,24 @@ namespace JeuDeLaVie.Test
             //ALORS la cellule morte devient vivante
             var celluleMorte = cellules[celluleInitialementMorte];
             Assert.True(celluleMorte.EstVivante);
+        }
+
+        [Fact(DisplayName = "ETANT DONNE une grille de 2x2 où toutes les cellules sont mortes " +
+                            "QUAND on passe un tour " +
+                            "ALORS elles restent mortes")]
+        public void Test4()
+        {
+            //ETANT DONNE une grille de 2x2 où toutes les cellules sont mortes
+            var cellules = Enumerable
+                .Range(default, 4)
+                .Select(_ => new Cellule(vivante: false))
+                .ToArray();
+
+            var grille = new Grille(cellules);
+            //QUAND on passe un tour
+            grille.PasserUnTour();
+            //ALORS elles restent mortes
+            Assert.True(cellules.All(cellule =>!cellule.EstVivante));
         }
 
         

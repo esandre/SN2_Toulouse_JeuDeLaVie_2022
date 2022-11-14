@@ -11,15 +11,11 @@ namespace JeuDeLaVie
        
         public Grille(Cellule[] cellules)
         {
-            if(!cellules[0].EstVivante)
-                cellules[0].PasserUnTour();
-
-            if (!cellules[1].EstVivante)
-                cellules[1].PasserUnTour();
-
-
-            if (!cellules[2].EstVivante)
-                cellules[2].PasserUnTour();
+          
+            foreach (var cellule in cellules.Where(cellule=>!cellule.EstVivante))
+            {
+                cellule.PasserUnTour();
+            }
         }
 
         public void PasserUnTour()
