@@ -18,8 +18,6 @@ namespace JeuDeLaVie
         public void PasserUnTour()
         {
             EstVivante = !EstVivante;
-            
         }
     }
-
 }
