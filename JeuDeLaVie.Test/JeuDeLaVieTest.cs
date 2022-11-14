@@ -41,6 +41,8 @@ namespace JeuDeLaVie.Test
                             "ALORS la cellule morte devient vivante")]
         [InlineData(1)]
         [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(4)]
         public void Test3(int celluleInitialementMorte)
         {
             //ETANT DONNE une grille de 2x2 où toutes les cellules sont vivantes sauf une
