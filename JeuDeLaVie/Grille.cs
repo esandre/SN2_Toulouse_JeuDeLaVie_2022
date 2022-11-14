@@ -11,7 +11,8 @@ namespace JeuDeLaVie
        
         public Grille(Cellule[] cellules)
         {
-            
+            if(!cellules[0].EstVivante)
+                cellules[0].PasserUnTour();
         }
 
         public void PasserUnTour()

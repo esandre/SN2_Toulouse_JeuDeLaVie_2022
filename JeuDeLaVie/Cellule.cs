@@ -17,7 +17,7 @@ namespace JeuDeLaVie
 
         public void PasserUnTour()
         {
-            EstVivante = false;
+            EstVivante = !EstVivante;
             
         }
     }

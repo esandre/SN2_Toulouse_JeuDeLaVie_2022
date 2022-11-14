@@ -35,6 +35,32 @@ namespace JeuDeLaVie.Test
             Assert.True(cellules.All(cellule => cellule.EstVivante));
         }
 
+
+        [Theory(DisplayName = "ETANT DONNE une grille de 2x2 où toutes les cellules sont vivantes sauf une " +
+                            "QUAND on passe un tour " +
+                            "ALORS la cellule morte devient vivante")]
+        [InlineData(1)]
+        [InlineData(2)]
+        public void Test3(int celluleInitialementMorte)
+        {
+            //ETANT DONNE une grille de 2x2 où toutes les cellules sont vivantes sauf une
+            var cellules = Enumerable
+                .Range(1, 4)
+                .ToDictionary(
+                    numéro => numéro,
+                    numéro => new Cellule(vivante: numéro != celluleInitialementMorte));
+
+            var grille = new Grille(cellules.Values.ToArray());
+
+            //QUAND on passe un tour
+            grille.PasserUnTour();
+
+            //ALORS la cellule morte devient vivante
+            var celluleMorte = cellules[celluleInitialementMorte];
+            Assert.True(celluleMorte.EstVivante);
+        }
+
+        //todo généraliser le test ci-dessus
     }
 
 }
