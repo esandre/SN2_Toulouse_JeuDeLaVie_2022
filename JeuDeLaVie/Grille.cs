@@ -13,6 +13,9 @@ namespace JeuDeLaVie
         {
             if(!cellules[0].EstVivante)
                 cellules[0].PasserUnTour();
+
+            if (!cellules[1].EstVivante)
+                cellules[1].PasserUnTour();
         }
 
         public void PasserUnTour()

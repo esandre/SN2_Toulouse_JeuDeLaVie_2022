@@ -60,7 +60,7 @@ namespace JeuDeLaVie.Test
             Assert.True(celluleMorte.EstVivante);
         }
 
-        //todo généraliser le test ci-dessus
+        
     }
 
 }
